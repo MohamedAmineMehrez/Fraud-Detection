@@ -1,2 +1,44 @@
-# Fraud-Detection
+# Fraud Detection in Financial Transactions
 
+## Project Overview
+This project focuses on building and evaluating machine learning models to detect fraudulent financial transactions. The primary challenge addressed is the extreme class imbalance typical of fraud detection datasets, where fraudulent cases constitute a very small percentage of total transactions.
+
+The solution explores three distinct approaches:
+1.  **Classic ML Algorithms**: Comparing models like XGBoost, Random Forest, and CatBoost using SMOTE oversampling.
+2.  **Isolation Forest**: Utilizing an unsupervised anomaly detection technique specifically suited for imbalanced data.
+3.  **Deep Learning (AutoEncoders)**: Implementing Deep Neural Networks with AutoEncoder architecture to learn reconstruction errors for anomaly identification.
+
+## Key Findings
+- **Best Performing Model**: **XGBoost** achieved the highest accuracy and F1 score of **~97.01%** after applying SMOTE.
+- **Anomaly Detection**: While Isolation Forest and Autoencoders effectively identified anomalies, the classic ensemble methods paired with SMOTE provided the best overall performance metrics on this specific dataset.
+
+## Dataset
+The dataset (`Fraud Detection Dataset.csv`) includes transaction details such as:
+- User ID
+- Transaction Amount & Type
+- Time of Transaction
+- Device Used & Location
+- Account Age & Previous Fraudulent Transactions
+- Payment Method
+
+*Note: The dataset exhibits significant class imbalance, requiring specialized handling during preprocessing.*
+
+## Tech Stack & Methods
+- **Languages & Libraries**: Python 3, Pandas, NumPy, Scikit-learn, Imbalanced-learn (SMOTE), TensorFlow/Keras, XGBoost, LightGBM, CatBoost.
+- **Data Preprocessing**:
+    - Handling missing values (Categorical: `'Unknown'`, Numerical: `mean`).
+    - Feature encoding (One-Hot Encoding for categorical variables).
+    - Data scaling using `StandardScaler`.
+    - Addressing Imbalance using **SMOTE** (Synthetic Minority Over-sampling Technique).
+- **Models Implemented**:
+    - Logistic Regression, SGD Classifier
+    - Decision Tree, Random Forest, Gradient Boosting
+    - XGBoost, LightGBM, CatBoost
+    - Isolation Forest
+    - AutoEncoders (Deep NN architecture with Dropout & Batch Normalization)
+
+## How to Run
+1.  Clone the repository.
+2.  Install dependencies:
+    ```bash
+    pip install -r requirements.txt
